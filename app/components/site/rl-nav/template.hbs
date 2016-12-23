@@ -1,0 +1,13 @@
+<div data-test-nav>
+  <a
+    data-test-brand
+    href={{href-to 'index'}}>
+    RyanLaBouve
+  </a>
+  {{#each links as |link|}}
+    {{link-to link.title link.path
+      class="js-nav-link"}}
+  {{else}}
+    No links found
+  {{/each}}
+</div>
