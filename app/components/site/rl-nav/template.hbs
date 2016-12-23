@@ -1,13 +1,44 @@
-<div data-test-nav>
-  <a
-    data-test-brand
-    href={{href-to 'index'}}>
-    RyanLaBouve
-  </a>
-  {{#each links as |link|}}
-    {{link-to link.title link.path
-      class="js-nav-link"}}
-  {{else}}
-    No links found
-  {{/each}}
+<div
+  class="bb b--black-10">
+  <div
+    class="w-80 mw8 center"
+    >
+    <div
+      class="flex flex-row pv4"
+      data-test-nav>
+      <div>
+        <a
+          data-test-brand
+          class="b pv1 ph2 mr3 no-underline bg-near-black white"
+          style="
+            margin-left: -0.5em;
+          "
+          href={{href-to 'blog'}}>
+          Ryan LaBouve
+        </a>
+        {{#each links as |link|}}
+          {{link-to link.title link.path
+            class="link js-nav-link pr2 f4 silver"}}
+        {{else}}
+          No links found
+        {{/each}}
+      </div>
+      <div class="flex-auto">&nbsp;</div>
+
+      {{#each socialLinks as |link|}}
+        {{#link-to link.path
+          title=link.title
+          class="js-social-nav-link pl3 silver"}}
+          {{fa-icon link.icon size=1}}
+        {{/link-to}}
+      {{else}}
+        No links found
+      {{/each}}
+      <div
+        class="ml4">
+        {{fa-icon 'search' size=1 class="dark-red"}}
+      </div>
+    </div>
+  </div>
 </div>
+

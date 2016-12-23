@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('about');
   this.route('speaking');
   this.route('projects');
+  this.route('blog', { path: '/' }, function() {});
 });
 
 export default Router;
