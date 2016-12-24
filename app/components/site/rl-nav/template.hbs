@@ -1,7 +1,7 @@
 <div
   class="bb b--black-10">
   <div
-    class="w-80-ns pa3-ns mw8 center"
+    class="w-80-ns pa3-ns mw8 center relative"
     >
     <div
       class="flex flex-row pv4"
@@ -13,32 +13,105 @@
           style="
             margin-left: -0.5em;
           "
+          onclick={{action 'closeMenu'}}
           href={{href-to 'blog'}}>
           Ryan LaBouve
         </a>
-        {{#each links as |link|}}
-          {{link-to link.title link.path
-            class="link js-nav-link pr2 f4 silver"}}
-        {{else}}
-          No links found
-        {{/each}}
+
+        {{#if hideMobileMenu}}
+          {{#each links as |link|}}
+            {{link-to link.title link.path
+              class="link js-nav-link pr2 f4 silver"}}
+          {{else}}
+            No links found
+          {{/each}}
+        {{/if}}
       </div>
       <div class="flex-auto">&nbsp;</div>
 
-      {{#each socialLinks as |link|}}
-        {{#link-to link.path
-          title=link.title
-          class="js-social-nav-link pl3 silver"}}
-          {{fa-icon link.icon size=1}}
-        {{/link-to}}
+      {{#if hideMobileMenu}}
+        {{#each socialLinks as |link|}}
+          {{#link-to link.path
+            title=link.title
+            class="js-social-nav-link pl3 silver"}}
+            {{fa-icon link.icon size=1}}
+          {{/link-to}}
+        {{else}}
+          No links found
+        {{/each}}
+        <div
+          class="ml4">
+          {{fa-icon 'search' size=1 class="dark-red"}}
+        </div>
       {{else}}
-        No links found
-      {{/each}}
-      <div
-        class="ml4">
-        {{fa-icon 'search' size=1 class="dark-red"}}
-      </div>
+        <div
+        onclick={{action 'toggleMobileMenu'}}
+        class="absolute pa2 b ba b--black-10 blue"
+        style="
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          cursor: pointer;
+        ">
+          {{#if _showMobileMenu}}
+            <span class="gray">
+              Close menu
+            </span>
+            <span class="dark-red">
+              {{fa-icon 'close'}}
+            </span>
+          {{else}}
+            Menu&nbsp;&nbsp;
+            <span>
+              {{fa-icon 'ellipsis-v'}}
+            </span>
+          {{/if}}
+        </div>
+      {{/if}}
     </div>
   </div>
 </div>
+{{#ember-wormhole to="menu"}}
+  <div>
+    {{#if (and showMobileMenu _showMobileMenu)}}
+      {{#each links as |link|}}
+        <div class="tc bb b--black-10 ">
+          {{link-to link.title link.path
+            invokeAction=(action 'closeMenu')
+            class="db pv3 link js-nav-link pr2 f4 silver"}}
+        </div>
+      {{/each}}
+      {{#each socialLinks as |link|}}
+        <div
+          style="margin-right: 2.5em;"
+          class="tc bb b--black-10"
+          >
+          {{#link-to link.path
+            title=link.title
+            class="db pv3 js-social-nav-link pl3 silver no-underline"}}
+            <span style={{concat "color: " (safe-string link.color)}}>
+              {{fa-icon link.icon size=1}}
+            </span>
+              &nbsp;
+            <span class="f4">{{link.title}}</span>
+          {{/link-to}}
+        </div>
+      {{/each}}
+      {{else}}
+    {{/if}}
+  </div>
+{{/ember-wormhole}}
 
+{{#ember-wormhole to="search"}}
+  <div>
+    {{#if (or _showSearchBar _showMobileMenu)}}
+      <div class="pa3 bg-dark-red white">
+        {{fa-icon "search"}}
+        <input
+          style="border: 0; background: transparent; outline: 0"
+          class="input-reset w-70 white"
+          placeholder="search">
+      </div>
+    {{/if}}
+  </div>
+{{/ember-wormhole}}
