@@ -57,7 +57,9 @@ export default Ember.Component.extend({
   _canWormhole: false,
 
   canWormhole() {
-    return Ember.$('#menu').length && Ember.$('#search').length;
+    let canWormhole = Ember.$('#menu').length && Ember.$('#search').length;
+    this.set('_canWormhole', canWormhole);
+    return canWormhole;
   },
 
   didInsertElement() {
