@@ -23,6 +23,19 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.2.x/shorthands/
   */
-  this.get('/articles');
+  this.get('/articles', ({ articles }, request) => {
+    let slug = request.queryParams['filter[slug]'];
+    if (slug) {
+      let query = articles.where({slug});
+      if (query.models.length) {
+        return articles.find(query.models[0].id);
+      } else {
+        return articles.find(1);
+      }
+    } else {
+      return articles.all();
+    }
+  });
+
   this.get('/articles/:id');
 }

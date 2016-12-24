@@ -16,5 +16,9 @@ export default Factory.extend({
 
   slug() {
     return Ember.String.dasherize(faker.internet.userName());
+  },
+
+  content() {
+    return `<strong>test</strong>`;
   }
 });
