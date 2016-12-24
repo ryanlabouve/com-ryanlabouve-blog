@@ -31,13 +31,13 @@
 
       {{#if hideMobileMenu}}
         {{#each socialLinks as |link|}}
-          {{#link-to link.path
-            title=link.title
-            class="js-social-nav-link pl3 silver"}}
+          <a href={{link.link}}
+            title={{link.title}}
+            class="js-social-nav-link pl3 silver">
             <span style={{concat "color: " (safe-string link.color)}}>
               {{fa-icon link.icon size=1}}
             </span>
-          {{/link-to}}
+          </a>
         {{else}}
           No links found
         {{/each}}
