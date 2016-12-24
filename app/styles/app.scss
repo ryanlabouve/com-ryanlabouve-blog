@@ -2,3 +2,13 @@ $blackish: #333333;
 body {
   color: $blackish;
 }
+
+.flex-1 {
+  flex: 1;
+}
+
+// @media screen and (max-width: 860px) {
+//   .no-flex-narrow {
+//     display: block !important;
+//   }
+// }
