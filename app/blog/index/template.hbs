@@ -1,2 +1,7 @@
-<h2>Blog index</h2>
-{{outlet}}
+<div class="pv4">
+  {{#each model as |article|}}
+    {{rl-article-li article=article}}
+  {{else}}
+    No Articles Found
+  {{/each}}
+</div>

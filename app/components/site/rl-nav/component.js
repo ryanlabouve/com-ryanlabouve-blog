@@ -9,6 +9,7 @@ export default Ember.Component.extend({
     this.setWindowSize();
   },
 
+
   links: [
     {
       title: 'Blog',
@@ -53,7 +54,14 @@ export default Ember.Component.extend({
     this.set('windowSize', Ember.$(window).width());
   },
 
+  _canWormhole: false,
+
+  canWormhole() {
+    return Ember.$('#menu').length && Ember.$('#search').length;
+  },
+
   didInsertElement() {
+    this.canWormhole();
     Ember.$(window).on(`resize.${this.id}`, () => {
       window.requestAnimationFrame(() => {
         this.set('_showMobileMenu', false);

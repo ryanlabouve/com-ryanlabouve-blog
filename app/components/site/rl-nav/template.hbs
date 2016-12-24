@@ -74,47 +74,49 @@
     </div>
   </div>
 </div>
-{{#ember-wormhole to="menu"}}
-  <div>
-    {{#if (and showMobileMenu _showMobileMenu)}}
-      {{#each links as |link|}}
-        <div class="tc bb b--black-10 ">
-          {{link-to link.title link.path
-            invokeAction=(action 'closeMenu')
-            class="db pv3 link js-nav-link pr2 f4 silver"}}
-        </div>
-      {{/each}}
-      {{#each socialLinks as |link|}}
-        <div
-            class="tc {{if link.last '' 'bb'}} b--black-10"
-          >
-          <a href={{link.link}}
-            style="margin-right: 2.5em;"
-            title={{link.title}}
-            class="db pv3 js-social-nav-link pl3 silver no-underline">
-            <span style={{concat "color: " (safe-string link.color)}}>
-              {{fa-icon link.icon size=1}}
-            </span>
-              &nbsp;
-            <span class="f4">{{link.title}}</span>
-          </a>
-        </div>
-      {{/each}}
-      {{else}}
-    {{/if}}
-  </div>
-{{/ember-wormhole}}
+{{#if _canWormhole}}
+  {{#ember-wormhole to="menu"}}
+    <div>
+      {{#if (and showMobileMenu _showMobileMenu)}}
+        {{#each links as |link|}}
+          <div class="tc bb b--black-10 ">
+            {{link-to link.title link.path
+              invokeAction=(action 'closeMenu')
+              class="db pv3 link js-nav-link pr2 f4 silver"}}
+          </div>
+        {{/each}}
+        {{#each socialLinks as |link|}}
+          <div
+              class="tc {{if link.last '' 'bb'}} b--black-10"
+            >
+            <a href={{link.link}}
+              style="margin-right: 2.5em;"
+              title={{link.title}}
+              class="db pv3 js-social-nav-link pl3 silver no-underline">
+              <span style={{concat "color: " (safe-string link.color)}}>
+                {{fa-icon link.icon size=1}}
+              </span>
+                &nbsp;
+              <span class="f4">{{link.title}}</span>
+            </a>
+          </div>
+        {{/each}}
+        {{else}}
+      {{/if}}
+    </div>
+  {{/ember-wormhole}}
 
-{{#ember-wormhole to="search"}}
-  <div>
-    {{#if (or _showSearchBar _showMobileMenu)}}
-      <div class="pa3 bg-black white">
-        {{fa-icon "search"}}
-        <input
-          style="border: 0; background: transparent; outline: 0"
-          class="input-reset w-70 white"
-          placeholder="search">
-      </div>
-    {{/if}}
-  </div>
-{{/ember-wormhole}}
+  {{#ember-wormhole to="search"}}
+    <div>
+      {{#if (or _showSearchBar _showMobileMenu)}}
+        <div class="pa3 bg-black white">
+          {{fa-icon "search"}}
+          <input
+            style="border: 0; background: transparent; outline: 0"
+            class="input-reset w-70 white"
+            placeholder="search">
+        </div>
+      {{/if}}
+    </div>
+  {{/ember-wormhole}}
+{{/if}}

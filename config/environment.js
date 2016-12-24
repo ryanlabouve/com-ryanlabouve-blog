@@ -23,6 +23,19 @@ module.exports = function(environment) {
     }
   };
 
+  var enableMirage = (environment == 'test' || environment === 'development');
+  // var enableMirage = (environment == 'test');
+
+  ENV['ember-cli-mirage'] = {
+    enabled: false
+  };
+
+  if (enableMirage) {
+    ENV['ember-cli-mirage'] = {
+      enabled: true
+    };
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
