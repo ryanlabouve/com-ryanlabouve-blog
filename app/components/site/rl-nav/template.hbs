@@ -84,18 +84,18 @@
       {{/each}}
       {{#each socialLinks as |link|}}
         <div
-          style="margin-right: 2.5em;"
-          class="tc bb b--black-10"
+            class="tc {{if link.last '' 'bb'}} b--black-10"
           >
-          {{#link-to link.path
-            title=link.title
-            class="db pv3 js-social-nav-link pl3 silver no-underline"}}
+          <a href={{link.link}}
+            style="margin-right: 2.5em;"
+            title={{link.title}}
+            class="db pv3 js-social-nav-link pl3 silver no-underline">
             <span style={{concat "color: " (safe-string link.color)}}>
               {{fa-icon link.icon size=1}}
             </span>
               &nbsp;
             <span class="f4">{{link.title}}</span>
-          {{/link-to}}
+          </a>
         </div>
       {{/each}}
       {{else}}

@@ -25,8 +25,23 @@
           </div>
         {{/site/rl-footer/rl-footer-box}}
         {{#site/rl-footer/rl-footer-box}}
-          <div class="f4 b pv3">
-            Other Social Media
+          <div class="f4 b pv1">
+            {{#each socialLinks as |link|}}
+              <div
+                class="tc {{if link.last '' 'bb'}} b--black-10"
+                >
+                <a href={{link.link}}
+                  style="margin-right: 1.5em;"
+                  title={{link.title}}
+                  class="db pv2 js-social-nav-link pl3 silver no-underline">
+                  <span style={{concat "color: " (safe-string link.color)}}>
+                    {{fa-icon link.icon size=1}}
+                  </span>
+                    &nbsp;
+                  <span class="f6">{{link.title}}</span>
+                </a>
+              </div>
+            {{/each}}
           </div>
           <div class="f6">
           </div>
