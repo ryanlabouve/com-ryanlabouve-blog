@@ -1,2 +1,34 @@
-<h1 class="f1 tc tl-ns">Projects</h1>
-{{outlet}}
+<div class="ph4">
+  <h1 class="f1 tc tl-ns">Projects</h1>
+  <div class="measure f2-ns f3 lh-copy">
+    <p>
+      Yay projects! Going to use this page to track and curate some fun things I've played with.
+    </p>
+  </div>
+  {{#each model as |project|}}
+    <div class="mb4">
+      <div>
+        <span class="f3">
+          {{project.title}}
+        </span>
+        {{#if project.url}}
+          <a
+            class="f6 blue mr2"
+            href={{project.url}}>
+            link</a>
+        {{/if}}
+        {{#if project.repo}}
+          <a
+            class="f6 red mr2"
+            href={{project.repo}}>
+            repo</a>
+        {{/if}}
+      </div>
+      <div class="lh-copy">
+        {{project.description}}
+      </div>
+      <div>
+      </div>
+    </div>
+  {{/each}}
+</div>

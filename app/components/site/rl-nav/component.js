@@ -75,6 +75,16 @@ export default Ember.Component.extend({
     toggleMobileMenu() {
       this.toggleProperty('_showMobileMenu');
     },
+
+    toggleSearchBar() {
+      this.toggleProperty('_showSearchBar');
+      if (this.get('_showSearchBar')) {
+        Ember.run.next(() => {
+          Ember.$('#search input').focus();
+        });
+      }
+    },
+
     closeMenu() {
       this.set('_showMobileMenu', false);
     }

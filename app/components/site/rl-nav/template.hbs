@@ -40,7 +40,8 @@
           No links found
         {{/each}}
         <div
-          class="ml4">
+          onclick={{action 'toggleSearchBar'}}
+          class="ml4 pointer">
           {{fa-icon 'search' size=1 class="dark-red"}}
         </div>
       {{else}}
