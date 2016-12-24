@@ -28,13 +28,10 @@ export default function() {
     if (slug) {
       let query = articles.where({slug});
       if (query.models.length) {
-        return articles.find(query.models[0].id);
-      } else {
-        return articles.find(1);
+        return query;
       }
-    } else {
-      return articles.all();
     }
+    return articles.all();
   });
 
   this.get('/articles/:id');

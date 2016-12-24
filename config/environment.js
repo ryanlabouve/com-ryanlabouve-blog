@@ -23,8 +23,10 @@ module.exports = function(environment) {
     }
   };
 
-  var enableMirage = (environment == 'test' || environment === 'development');
-  // var enableMirage = (environment == 'test');
+  ENV.API = {};
+
+  // var enableMirage = (environment == 'test' || environment === 'development');
+  var enableMirage = (environment === 'test');
 
   ENV['ember-cli-mirage'] = {
     enabled: false
@@ -42,9 +44,11 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.API.host = 'http://localhost:3079/api/v1/';
   }
 
   if (environment === 'test') {
+    ENV.API.host = '/';
     // Testem prefers this...
     ENV.locationType = 'none';
 
