@@ -1,7 +1,8 @@
 import {
   create,
   visitable,
-  collection
+  collection,
+  clickable
 } from 'ember-cli-page-object';
 
 import testSelector from 'com-ryanlabouve-blog/tests/helpers/ember-test-selectors';
@@ -13,7 +14,8 @@ export default create({
     item: {
       title: testSelector('article-title'),
       description: testSelector('article-description'),
-      date: testSelector('article-date')
+      date: testSelector('article-date'),
+      visit: clickable(testSelector('article-link'))
     }
   })
 });

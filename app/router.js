@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('speaking');
   this.route('projects');
   this.route('blog', { path: '/' }, function() {});
+  this.route('article', { path: '/:slug' });
 });
 
 export default Router;

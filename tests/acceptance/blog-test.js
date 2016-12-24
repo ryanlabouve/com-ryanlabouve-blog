@@ -20,3 +20,16 @@ test('We can see articles', function(assert) {
     );
   });
 });
+
+test('We can visit an article', function(assert) {
+  blogPage.visit();
+  blogPage.articles(0).visit();
+
+  andThen(function() {
+    assert.equal(
+      currentURL(),
+      `/${server.db.articles[0].slug}`,
+      'We are looking at the article page'
+    );
+  });
+});
