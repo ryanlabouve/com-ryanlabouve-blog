@@ -34,7 +34,9 @@
           {{#link-to link.path
             title=link.title
             class="js-social-nav-link pl3 silver"}}
-            {{fa-icon link.icon size=1}}
+            <span style={{concat "color: " (safe-string link.color)}}>
+              {{fa-icon link.icon size=1}}
+            </span>
           {{/link-to}}
         {{else}}
           No links found
@@ -42,7 +44,7 @@
         <div
           onclick={{action 'toggleSearchBar'}}
           class="ml4 pointer">
-          {{fa-icon 'search' size=1 class="dark-red"}}
+          {{fa-icon 'search' size=1 class="black"}}
         </div>
       {{else}}
         <div
