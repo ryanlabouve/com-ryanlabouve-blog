@@ -1,2 +1,35 @@
-<h1 class="f1">Speaking</h1>
-{{outlet}}
+<h1 class="f1 tc tl-ns">Speaking</h1>
+<div class="measure f2-ns f3 lh-copy">
+  <p>
+    What why where when contact?
+  </p>
+</div>
+{{#each model as |talk|}}
+  <div class="mb4">
+    <div class="f6 gray">{{talk.date}}</div>
+    <div>
+      <span class="f4">
+        {{talk.title}}
+      </span>
+      {{#if talk.slides}}
+        <a
+          class="f6 blue mr2"
+          href={{talk.slides}}>
+          SLIDES</a>
+      {{/if}}
+      {{#if talk.meetup}}
+        <a
+          class="f6 pink mr2"
+          href={{talk.meetup}}>
+          MEETUP</a>
+      {{/if}}
+
+      {{#if talk.video}}
+        <a
+          class="f6 purple mr2"
+          href={{talk.video}}>
+          VIDEO</a>
+      {{/if}}
+    </div>
+  </div>
+{{/each}}
