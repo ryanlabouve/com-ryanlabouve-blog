@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Small description for com-ryanlabouve-blog goes here",
   "license": "MIT",
-  "author": "",
+  "author": "@ryanlabouve",
   "directories": {
     "doc": "doc",
     "test": "tests"
