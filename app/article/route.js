@@ -10,6 +10,10 @@ export default Ember.Route.extend({
     });
   },
 
+  activate() {
+    window.scrollTo(0,0);
+  },
+
   setupController(controller, model) {
     controller.set('model', model.get('firstObject'));
   }
