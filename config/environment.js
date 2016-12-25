@@ -3,6 +3,15 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'com-ryanlabouve-blog',
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['production'],
+        config: {
+          id: 'UA-71758047-2'
+        }
+      }
+    ],
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
