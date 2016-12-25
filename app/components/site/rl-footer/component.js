@@ -1,6 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  store: Ember.inject.service(),
+  recentArticles: Ember.computed(function() {
+    return this.get('store').query('article', {
+      filter: {
+        limit: 5
+      }
+    });
+  }),
   socialLinks: [
     {
       title: 'RSS',

@@ -18,9 +18,30 @@
           </div>
         {{/site/rl-footer/rl-footer-box}}
         {{#site/rl-footer/rl-footer-box}}
-          <div class="f4 b pv3">
-            Recent Article
-          </div>
+          {{#deferred-content recentArticles as |d|}}
+            {{#d.settled}}
+              {{! title here? }}
+              <div class="pv2 f6 b tc">Recent Articles</div>
+            {{/d.settled}}
+            {{#d.pending}}
+              Loading...
+            {{/d.pending}}
+            {{#d.fulfilled as |comments|}}
+              {{#each recentArticles as |article index|}}
+                <div
+                  class="tc {{if (eq index 4) '' 'bb'}} b--black-10">
+                  <a href={{href-to 'article' article.slug}}
+                    title={{article.title}}
+                    class="min-w-4 db pv2 js-social-nav-link pl3 silver no-underline">
+                    <span class="f6">{{article.title}}</span>
+                  </a>
+                </div>
+              {{/each}}
+            {{/d.fulfilled}}
+            {{#d.rejected as |reason|}}
+              Could not load comments: {{reason}}
+            {{/d.rejected}}
+          {{/deferred-content}}
           <div class="f6">
           </div>
         {{/site/rl-footer/rl-footer-box}}
