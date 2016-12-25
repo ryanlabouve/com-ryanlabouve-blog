@@ -1,5 +1,7 @@
 /* jshint node: true */
 
+require('dotenv').config({silent: true});
+
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'com-ryanlabouve-blog',
@@ -8,10 +10,14 @@ module.exports = function(environment) {
         name: 'GoogleAnalytics',
         environments: ['production'],
         config: {
-          id: 'UA-71758047-2'
+          id: process.env.GA_KEY
         }
       }
     ],
+    bugsnag: {
+      apiKey: process.env.BUGSNAG_KEY,
+      notifyReleaseStages: ['production']
+    },
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
