@@ -47,6 +47,10 @@ module.exports = function(environment) {
     ENV.API.host = 'http://localhost:3079/api/v1/';
   }
 
+  if (environment === 'production') {
+    ENV.API.host = 'https://blog-ryanlabouve-api.herokuapp.com/api/v1/';
+  }
+
   if (environment === 'test') {
     ENV.API.host = '/';
     // Testem prefers this...
