@@ -114,8 +114,11 @@
           <input
             style="border: 0; background: transparent; outline: 0"
             class="input-reset w-70 white"
+            onkeyup={{action (mut term) value="target.value"}}
             placeholder="search">
         </div>
+        {{site/rl-site-search term=term}}
+
       {{/if}}
     </div>
   {{/ember-wormhole}}
