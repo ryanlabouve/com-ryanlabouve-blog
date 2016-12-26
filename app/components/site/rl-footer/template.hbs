@@ -5,22 +5,24 @@
     >
       <div class="flex-ns flex-row items-start pv4">
         {{#site/rl-footer/rl-footer-box}}
-          <div class="f4 b pv3">
+          <div class="f6 b pv2 tc">
             Ryan LaBouve
           </div>
-          <div class="f6">
+          <div class="f6 tc lh-copy">
             <p>
-              Ember.js &amp; Rails
+              — Ember.js, Rails, Programming — 
             </p>
             <p>
-              Disciple of Jesus Christ &amp; family man. Doer of JS &amp; maker of webs.
+              Trying to be more like Jesus. Love always wins, no matter how grim things&nbsp;seem.
+            </p>
+            <p>
+              ❤️ family, friends, coffee, lifting, OCR's, running, reading, and a great many other&nbsp;things.
             </p>
           </div>
         {{/site/rl-footer/rl-footer-box}}
         {{#site/rl-footer/rl-footer-box}}
           {{#deferred-content recentArticles as |d|}}
             {{#d.settled}}
-              {{! title here? }}
               <div class="pv2 f6 b tc">Recent Articles</div>
             {{/d.settled}}
             {{#d.pending}}
