@@ -67,7 +67,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
-    ENV.API.host = '/';
+    ENV.API.host = 'http://localhost:3079/api/v1';
     // Testem prefers this...
     ENV.locationType = 'none';
 
