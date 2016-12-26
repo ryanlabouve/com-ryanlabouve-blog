@@ -1,4 +1,6 @@
-<div class="cf mb5" data-test-article-listing>
+<a href={{href-to 'article' article.slug}}
+  class="cf mb5 db no-underline black"
+  data-test-article-listing>
   <div class="fr gray" data-test-date>
     {{moment-format article.date 'YYYY-MM-DD'}}
   </div>
@@ -16,4 +18,4 @@
       Read more
     </a>
   </div>
-</div>
+</a>
