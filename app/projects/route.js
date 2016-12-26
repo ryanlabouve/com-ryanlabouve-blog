@@ -35,6 +35,7 @@ let projects = [
 ];
 
 export default Ember.Route.extend({
+  titleToken: 'Projects',
   model() {
     return projects;
   }

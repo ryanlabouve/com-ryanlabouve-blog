@@ -48,6 +48,7 @@ let talks = [
 ];
 
 export default Ember.Route.extend({
+  titleToken: 'Speaking',
   model() {
     return talks;
   }

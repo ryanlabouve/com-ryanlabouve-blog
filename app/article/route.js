@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+
+  titleToken: function(model) {
+    return model.get('firstObject.title') || model.get('title');
+  },
+
   model(params) {
     let slug = params.slug;
     return this.store.query('article', {
