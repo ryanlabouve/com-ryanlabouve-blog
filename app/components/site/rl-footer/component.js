@@ -37,7 +37,7 @@ export default Ember.Component.extend({
     {
       title: 'Instagram',
       icon: 'instagram',
-      link: 'https://www.linkedin.com/in/ryanlabouve',
+      link: 'https://www.instagram.com/ryanlabouve/',
       color: '405de6'
     },
     {
