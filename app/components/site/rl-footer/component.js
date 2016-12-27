@@ -13,7 +13,7 @@ export default Ember.Component.extend({
     {
       title: 'RSS',
       icon: 'rss',
-      link: '#',
+      link: 'https://github.com/ryanlabouve/com-ryanlabouve-blog/issues/25',
       color: '#c7b572'
     },
     {
