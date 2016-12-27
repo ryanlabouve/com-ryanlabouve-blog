@@ -110,6 +110,13 @@
     <div>
       {{#if (or _showSearchBar _showMobileMenu)}}
         <div class="pa3 bg-black white">
+          {{#if (not _showMobileMenu)}}
+            <div
+              onclick={{action "closeSearch"}}
+              class="fr pointer">
+              {{fa-icon "close"}}
+            </div>
+          {{/if}}
           {{fa-icon "search"}}
           <input
             style="border: 0; background: transparent; outline: 0"

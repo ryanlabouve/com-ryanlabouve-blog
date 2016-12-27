@@ -97,6 +97,10 @@ export default Ember.Component.extend({
 
     closeMenu() {
       this.set('_showMobileMenu', false);
+    },
+
+    closeSearch() {
+      this.set('_showSearchBar', false);
     }
   }
 });
