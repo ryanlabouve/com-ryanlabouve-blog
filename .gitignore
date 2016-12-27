@@ -17,3 +17,4 @@ npm-debug.log*
 testem.log
 .env
 .DS_Store
+google-chrome-stable_current_amd64.deb
