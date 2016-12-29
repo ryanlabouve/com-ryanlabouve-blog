@@ -8,6 +8,6 @@ export default Ember.Component.extend({
       hljs.highlightBlock(block);
     });
 
-    this.$('p, li').addClass('measure');
+    this.$('p, li').addClass('measure lh-copy');
   }
 });
