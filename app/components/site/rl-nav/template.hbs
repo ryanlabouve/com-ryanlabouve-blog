@@ -108,7 +108,7 @@
 
   {{#ember-wormhole to="search"}}
     <div>
-      {{#if (or _showSearchBar _showMobileMenu)}}
+      {{#liquid-if (or _showSearchBar _showMobileMenu)}}
         <div class="pa3 bg-black white">
           {{#if (not _showMobileMenu)}}
             <div
@@ -126,7 +126,7 @@
         </div>
         {{site/rl-site-search term=term}}
 
-      {{/if}}
+      {{/liquid-if}}
     </div>
   {{/ember-wormhole}}
 {{/if}}
