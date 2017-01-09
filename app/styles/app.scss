@@ -33,6 +33,10 @@ body {
   min-width: 19em;
 }
 
+pre {
+  margin-left: -0.6rem;
+}
+
 code {
   font-size: 0.9em;
   background: yellow;
@@ -40,3 +44,9 @@ code {
   padding-right: 0.2em;
   line-height: 1.5;
 }
+
+
+ul {
+  padding-left: 0;
+}
+
