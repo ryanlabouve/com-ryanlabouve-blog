@@ -60,11 +60,16 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.API.host = 'http://localhost:3079/api/v1/';
+    // ENV.API.host = 'http://localhost:3079/api/v1/';
+    ENV.API.host = 'http://localhost:3080/api';
   }
 
   if (environment === 'production') {
-    ENV.API.host = 'https://blog-ryanlabouve-api.herokuapp.com/api/v1/';
+    // Rails
+    // ENV.API.host = 'https://blog-ryanlabouve-api.herokuapp.com/api/v1/';
+
+    // Phoenix
+    ENV.API.host = 'https://ryanlabouve-api-phoenix.herokuapp.com/api';
   }
 
   if (environment === 'test') {
