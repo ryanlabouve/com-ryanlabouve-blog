@@ -1,35 +1,27 @@
+---
 language: node_js
 node_js:
-- '4'
-sudo: required
+  - "6"
+
+sudo: false
 dist: trusty
+
+addons:
+  chrome: stable
+
 cache:
   directories:
-  - "$HOME/.npm"
-  - "$HOME/.cache"
+    - $HOME/.npm
+
+env:
+  global:
+    # See https://git.io/vdao3 for details.
+    - JOBS=1
+
 before_install:
-- export CHROME_BIN=/usr/bin/google-chrome
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- sudo apt-get update
-- sudo apt-get install -y libappindicator1 fonts-liberation
-- wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-- sudo dpkg -i google-chrome*.deb
-- npm config set spin false
-- npm install -g bower
-- bower --version
-install:
-- npm install
-- bower install
+  - npm config set spin false
+
 script:
-- npm test
-deploy:
-  provider: heroku
-  api_key:
-    secure: YyCm6ciFOt058+jfcNJtOvUfJEKYM3rilNr/Xx0nwVG6RVRVdlkq9poqEQ3H7Pwmgpwdp87UHyOgPEQ6PDMkYTmXfYSF4jI9CPAqL50760th1mU6BVahiGxfGq1RFHaTGZ/r2LomlUj/18p537TFreVu9QzgkMhtkdKFxsgDSKocqZckkQnCORDIPPKwQO0zKnsUZBaLVFgoc4c4kqfxxlqKmW7HR50ORvNS4+QC3KN03zBziz47kuIjEYY0VayKHwGgaNcb1QXI4CIuLh10XSX9nuNFTYoQmYit0r5AFI93lnHMgyEE9PgfpZlI65fjBT7U7ES37zx13uWk/1ph/cyZA+ViE/mqkgZaz+ujpgXQep2NzMJmAQwoCbzN3AG5TmzhY2Pe3atvpQecSq1Tglx03WPX5kt5Uuuj6jT7Zanmo1hEyURLQxGIfzm00OOod8Y5fSoW5pDgK9hS4cA6BvFEZ6uqHpwt+a28l+3S0TYKBMmgmI6w0VGrB70nvVjq7SwUlF/wrMB1o3OfqR7pp78cK63Yh293Mzl6/WxMntkafbX3Yf3XkXtx/BhNIeSzmfMZjlloIhGMBwy088lcFy9uH+SIhTeXu7PsMwDpQ5J5851rYtR+fTUsAGKScQWrrJ6IzLCH/XvK2p37cM+l5sl9LoKp9tr9z2UUPPxn9ZA=
-  app: com-ryanlabouve-blog
-  on:
-    repo: ryanlabouve/com-ryanlabouve-blog
-notifications:
-  slack:
-    secure: koLsndi/PcXIJGJKB033UX/P5CAochQLpRQeQlPqyhHa2Z/syDRYcNB5QDZ3KNttKrm1jcQOZLDzTOaZMxJ1UMdwiUgSKF91sOl6o+UwO8Aaoa+SIh1OcquC3XqwTuJvXhlKn4NcXvawHq5fIBwmS2nHebkdP8DYIKebvZbukEZyX1V8VF0n7PCIcEZCXoQq8GRkpSEBNuADESoOBOnnPYOGgmFmxjTWGuYr6VnE//DoZmiuuIVmXk8ySiSYFzMiaid8uCqJKHBnYM6LisYrS3tI1dOF+trBSa6nomy1MRuImx5ZaifDhZzz8RsDqSAzD5zSwTq8FGJEX4bnpij9l1UrIQXGIT3pq7JxLWE9umZ4BDyeEET9ZJCTAz7I/zNm6vnOyTlH3CDPgt+q9NQc9g5pTSjwqAYTnyxViMY8iF+Yyb0713VzPpT+BL1aYk02N865oZlwinYTScCTK9xlYe5teIsYg5u2gK+6LzBZSUz0Q7fgM7fdJcRtOz1tWYwups64Q2flo+nhgv3X+scQeIoNqH/mQEOA/SFfPrRNYczyGMcRJdX9ctm/N/4IApkNCOOREU43nqvMuWtkn7BjA5/YFSaZ1Cn+eEUxCXAG39HaWMZArJRPZqvXydFbaQdjYuLrXgnQQpuw12FB1KMUxsFnJGsiff/PhFSow8D7vZc=
+  - npm run lint:hbs
+  - npm run lint:js
+  - npm test

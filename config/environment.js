@@ -1,25 +1,24 @@
-/* jshint node: true */
-
-require('dotenv').config({silent: true});
+'use strict';
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'com-ryanlabouve-blog',
     metricsAdapters: [
       {
         name: 'GoogleAnalytics',
         environments: ['production'],
         config: {
-          id: process.env.GA_KEY
-        }
-      }
+          id: process.env.GA_KEY,
+        },
+      },
     ],
     bugsnag: {
       apiKey: process.env.BUGSNAG_KEY,
       notifyReleaseStages: ['production'],
-      releaseStage: environment
+      releaseStage: environment,
     },
-    environment: environment,
+
+    environment,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -29,30 +28,15 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
-
-  ENV.API = {};
-
-  // var enableMirage = (environment == 'test' || environment === 'development');
-  var enableMirage = (environment === 'test');
-
-  ENV['ember-cli-mirage'] = {
-    enabled: false
-  };
-
-  if (enableMirage) {
-    ENV['ember-cli-mirage'] = {
-      enabled: true
-    };
-  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -60,20 +44,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    // ENV.API.host = 'http://localhost:3079/api/v1/';
-    ENV.API.host = 'http://localhost:3080/api';
-  }
-
-  if (environment === 'production') {
-    // Rails
-    // ENV.API.host = 'https://blog-ryanlabouve-api.herokuapp.com/api/v1/';
-
-    // Phoenix
-    ENV.API.host = 'https://ryanlabouve-api-phoenix.herokuapp.com/api';
   }
 
   if (environment === 'test') {
-    ENV.API.host = 'http://localhost:3079/api/v1';
     // Testem prefers this...
     ENV.locationType = 'none';
 
@@ -82,10 +55,11 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {
-
+    // here you can enable a production-specific feature
   }
 
   return ENV;
