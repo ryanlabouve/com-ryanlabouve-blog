@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
 let projects = [
   {
@@ -34,7 +34,7 @@ let projects = [
   }
 ];
 
-export default Ember.Route.extend({
+export default Route.extend({
   titleToken: 'Projects',
   model() {
     return projects;

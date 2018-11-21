@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
 let talks = [
   {
@@ -47,7 +47,7 @@ let talks = [
   }
 ];
 
-export default Ember.Route.extend({
+export default Route.extend({
   titleToken: 'Speaking',
   model() {
     return talks;

@@ -1,16 +1,18 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('site/rl-footer', 'Integration | Component | site/rl footer', {
-  integration: true
-});
+module('Integration | Component | site/rl footer', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{site/rl-footer}}`);
+    await render(hbs`{{site/rl-footer}}`);
 
-  assert.ok(this.$().text().trim(), 'it renders');
+    assert.ok(find('*').textContent.trim(), 'it renders');
+  });
 });

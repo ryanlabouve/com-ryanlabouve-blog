@@ -1,5 +1,4 @@
 export default function() {
-
   // These comments are here to help you get started. Feel free to delete them.
 
   /*
@@ -8,8 +7,8 @@ export default function() {
     Note: these only affect routes defined *after* them!
   */
 
-    this.urlPrefix = 'http://localhost:3079';
-    this.namespace = 'api/v1';
+  this.urlPrefix = 'http://localhost:3080';
+  this.namespace = 'api/';
   // this.namespace = '';    // make this `api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
@@ -24,7 +23,7 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.2.x/shorthands/
   */
-  this.get('/articles', ({ articles }, request) => {
+  this.get('/articles', ({articles}, request) => {
     let slug = request.queryParams['filter[slug]'];
     if (slug) {
       let query = articles.where({slug});

@@ -1,16 +1,18 @@
-import Ember from 'ember';
+import { observer } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import { task, timeout } from 'ember-concurrency';
 
-export default Ember.Component.extend({
-  store: Ember.inject.service(),
+export default Component.extend({
+  store: service(),
 
-  doSearch: Ember.observer('term', function() {
-    this.get('searchTask').perform(this.get('term'));
+  doSearch: observer('term', function() {
+    this.searchTask.perform(this.term);
   }),
 
   searchTask: task(function*(term) {
     yield timeout(300);
-    let results = yield this.get('store').query('article', {
+    let results = yield this.store.query('article', {
       filter: {
         term
       }

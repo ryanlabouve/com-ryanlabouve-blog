@@ -1,15 +1,14 @@
-import { test } from 'qunit';
-import moduleForAcceptance from 'com-ryanlabouve-blog/tests/helpers/module-for-acceptance';
-
-moduleForAcceptance('Acceptance | happy path');
-
+import {currentURL} from '@ember/test-helpers';
+import {module, test} from 'qunit';
+import {setupApplicationTest} from 'ember-qunit';
 import sitePage from 'com-ryanlabouve-blog/tests/pages/site';
 
-test('visiting /happy-path', function(assert) {
-  sitePage.visit();
+module('Acceptance | happy path', function(hooks) {
+  setupApplicationTest(hooks);
 
-  andThen(function() {
+  test('visiting /happy-path', function(assert) {
+    sitePage.visit();
+
     assert.equal(currentURL(), '/');
   });
 });
-

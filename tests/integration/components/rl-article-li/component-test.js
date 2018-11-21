@@ -1,16 +1,18 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('rl-article-li', 'Integration | Component | rl article li', {
-  integration: true
-});
+module('Integration | Component | rl article li', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{rl-article-li}}`);
+    await render(hbs`{{rl-article-li}}`);
 
-  assert.ok(this.$().text().trim(), 'it renders');
+    assert.ok(find('*').textContent.trim(), 'it renders');
+  });
 });

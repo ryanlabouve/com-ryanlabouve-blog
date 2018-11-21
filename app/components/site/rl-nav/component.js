@@ -1,6 +1,11 @@
+import { next } from '@ember/runloop';
+import { computed } from '@ember/object';
+import { not } from '@ember/object/computed';
+import $ from 'jquery';
+import Component from '@ember/component';
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Component.extend({
   showMobileMenuAt: 960,
   _showMobileMenu: false,
 
@@ -51,20 +56,20 @@ export default Ember.Component.extend({
   ],
 
   setWindowSize() {
-    this.set('windowSize', Ember.$(window).width());
+    this.set('windowSize', $(window).width());
   },
 
   _canWormhole: false,
 
   canWormhole() {
-    let canWormhole = Ember.$('#menu').length && Ember.$('#search').length;
+    let canWormhole = $('#menu').length && $('#search').length;
     this.set('_canWormhole', canWormhole);
     return canWormhole;
   },
 
   didInsertElement() {
     this.canWormhole();
-    Ember.$(window).on(`resize.${this.id}`, () => {
+    $(window).on(`resize.${this.id}`, () => {
       window.requestAnimationFrame(() => {
         this.set('_showMobileMenu', false);
         this.setWindowSize();
@@ -73,12 +78,12 @@ export default Ember.Component.extend({
   },
 
   willDestroyElement() {
-    Ember.$(window).off(`resize.${this.id}`);
+    $(window).off(`resize.${this.id}`);
   },
 
-  hideMobileMenu: Ember.computed.not('showMobileMenu'),
-  showMobileMenu: Ember.computed('windowSize', function() {
-    return this.get('windowSize') <= this.get('showMobileMenuAt') && !Ember.testing;
+  hideMobileMenu: not('showMobileMenu'),
+  showMobileMenu: computed('windowSize', function() {
+    return this.windowSize <= this.showMobileMenuAt && !Ember.testing;
   }),
 
   actions: {
@@ -88,9 +93,9 @@ export default Ember.Component.extend({
 
     toggleSearchBar() {
       this.toggleProperty('_showSearchBar');
-      if (this.get('_showSearchBar')) {
-        Ember.run.next(() => {
-          Ember.$('#search input').focus();
+      if (this._showSearchBar) {
+        next(() => {
+          $('#search input').focus();
         });
       }
     },
