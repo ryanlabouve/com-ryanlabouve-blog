@@ -1,4 +1,5 @@
-import { Factory, faker } from 'ember-cli-mirage';
+import {Factory, faker} from 'ember-cli-mirage';
+import {dasherize} from '@ember/string';
 import Ember from 'ember';
 
 export default Factory.extend({
@@ -7,7 +8,7 @@ export default Factory.extend({
   },
 
   description() {
-   return faker.lorem.paragraph();
+    return faker.lorem.paragraph();
   },
 
   date() {
@@ -15,10 +16,10 @@ export default Factory.extend({
   },
 
   slug() {
-    return Ember.String.dasherize(faker.internet.userName());
+    return dasherize(faker.internet.userName());
   },
 
   content() {
     return `<strong>test</strong>`;
-  }
+  },
 });
