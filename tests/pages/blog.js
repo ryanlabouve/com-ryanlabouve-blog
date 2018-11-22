@@ -1,21 +1,14 @@
-import {
-  create,
-  visitable,
-  collection,
-  clickable
-} from 'ember-cli-page-object';
-
-import testSelector from 'com-ryanlabouve-blog/tests/helpers/ember-test-selectors';
+import {create, visitable, collection, clickable} from 'ember-cli-page-object';
 
 export default create({
   visit: visitable('/'),
   articles: collection({
-    itemScope: testSelector('article-listing'),
+    itemScope: '[data-test-article-listing]',
     item: {
-      title: testSelector('article-title'),
-      description: testSelector('article-description'),
-      date: testSelector('article-date'),
-      visit: clickable(testSelector('article-link'))
-    }
-  })
+      title: '[data-test-article-title]',
+      description: '[data-test-article-description]',
+      date: '[data-test-article-date]',
+      visit: clickable('[data-test-article-link]'),
+    },
+  }),
 });

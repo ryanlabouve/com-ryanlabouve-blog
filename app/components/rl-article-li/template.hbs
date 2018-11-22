@@ -1,8 +1,8 @@
-<a href={{href-to 'article' article.slug}}
+<a href={{href-to "article" article.slug}}
   class="cf mb5 db no-underline black"
   data-test-article-listing>
   <div class="fr gray" data-test-date>
-    {{moment-format article.date 'YYYY-MM-DD'}}
+    {{moment-format article.date "YYYY-MM-DD"}}
   </div>
   <div class="f2 mb2" data-test-title>
     {{article.title}}
@@ -11,12 +11,14 @@
     {{article.description}}
   </div>
   <div class="mt2">
+    {{! template-lint-disable no-nested-interactive }}
     <a
       data-test-article-link
       class="pa2 dib bg-animate hover-bg-blue ba br1
         hover-white blue no-underline b--color-blue"
-      href={{href-to 'article' article.slug}}>
+      href={{href-to "article" article.slug}}>
       Read more
     </a>
+    {{! template-lint-enable no-nested-interactive }}
   </div>
 </a>

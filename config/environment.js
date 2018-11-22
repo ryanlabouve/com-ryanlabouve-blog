@@ -74,7 +74,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
-    ENV.API.host = 'http://localhost:3079/api/v1';
+    ENV.APP.autoboot = false;
+
+    ENV.API.host = 'http://localhost:3080/api';
     // Testem prefers this...
     ENV.locationType = 'none';
 
@@ -83,6 +85,11 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV['ember-cli-mirage'] = {
+      enabled: true,
+      autostart: true,
+    };
   }
 
   if (environment === 'production') {

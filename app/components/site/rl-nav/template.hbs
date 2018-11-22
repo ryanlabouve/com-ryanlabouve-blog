@@ -1,27 +1,22 @@
-<div
-  class="bb b--black-10">
-  <div
-    class="w-80-ns pa3-ns mw8 center relative"
-    >
-    <div
-      class="flex flex-row pv4"
-      data-test-nav>
+<div class="bb b--black-10">
+  <div class="w-80-ns pa3-ns mw8 center relative">
+    <div class="flex flex-row pv4" data-test-nav>
       <div>
         <a
           data-test-brand
           class="b pv1 ph2 mr3 no-underline bg-near-black white"
           style="
-            margin-left: -0.5em;
+          margin-left: -0.5em;
           "
-          onclick={{action 'closeMenu'}}
-          href={{href-to 'blog'}}>
+          onclick={{action "closeMenu"}}
+          href={{href-to "blog"}}>
           Ryan LaBouve
         </a>
 
         {{#if hideMobileMenu}}
           {{#each links as |link|}}
             {{link-to link.title link.path
-              class="link js-nav-link pr2 f4 silver"}}
+            class="link js-nav-link pr2 f4 silver"}}
           {{else}}
             No links found
           {{/each}}
@@ -41,35 +36,33 @@
         {{else}}
           No links found
         {{/each}}
-        <div
-          onclick={{action 'toggleSearchBar'}}
-          class="ml4 pointer">
-          {{fa-icon 'search' size=1 class="black"}}
-        </div>
+        <button onclick={{action "toggleSearchBar"}} class="ml4 pointer">
+          {{fa-icon "search" size=1 class="black"}}
+        </button>
       {{else}}
-        <div
-        onclick={{action 'toggleMobileMenu'}}
-        class="absolute pa2 b ba b--black-10 blue mr2 mr0-ns"
-        style="
+        <button
+          onclick={{action "toggleMobileMenu"}}
+          class="absolute pa2 b ba b--black-10 blue mr2 mr0-ns"
+          style="
           top: 50%;
           right: 0;
           transform: translateY(-50%);
           cursor: pointer;
-        ">
+          ">
           {{#if _showMobileMenu}}
             <span class="gray">
               Close menu
             </span>
             <span class="dark-red">
-              {{fa-icon 'close'}}
+              {{fa-icon "close"}}
             </span>
           {{else}}
             Menu&nbsp;&nbsp;
             <span>
-              {{fa-icon 'ellipsis-v'}}
+              {{fa-icon "ellipsis-v"}}
             </span>
           {{/if}}
-        </div>
+        </button>
       {{/if}}
     </div>
   </div>
@@ -81,13 +74,13 @@
         {{#each links as |link|}}
           <div class="tc bb b--black-10 ">
             {{link-to link.title link.path
-              invokeAction=(action 'closeMenu')
-              class="db pv3 link js-nav-link pr2 f4 silver"}}
+            invokeAction=(action "closeMenu")
+            class="db pv3 link js-nav-link pr2 f4 silver"}}
           </div>
         {{/each}}
         {{#each socialLinks as |link|}}
           <div
-              class="tc {{if link.last '' 'bb'}} b--black-10"
+            class="tc {{if link.last "" "bb"}} b--black-10"
             >
             <a href={{link.link}}
               style="margin-right: 2.5em;"
@@ -96,12 +89,12 @@
               <span style={{concat "color: " (safe-string link.color)}}>
                 {{fa-icon link.icon size=1}}
               </span>
-                &nbsp;
+              &nbsp;
               <span class="f4">{{link.title}}</span>
             </a>
           </div>
         {{/each}}
-        {{else}}
+      {{else}}
       {{/if}}
     </div>
   {{/ember-wormhole}}
@@ -111,18 +104,18 @@
       {{#liquid-if (or _showSearchBar _showMobileMenu)}}
         <div class="pa3 bg-black white">
           {{#if (not _showMobileMenu)}}
-            <div
+            <button
               onclick={{action "closeSearch"}}
               class="fr pointer">
               {{fa-icon "close"}}
-            </div>
+            </button>
           {{/if}}
           {{fa-icon "search"}}
           <input
-            style="border: 0; background: transparent; outline: 0"
-            class="input-reset w-70 white"
-            onkeyup={{action (mut term) value="target.value"}}
-            placeholder="search">
+          style="border: 0; background: transparent; outline: 0"
+          class="input-reset w-70 white"
+          onkeyup={{action (mut term) value="target.value"}}
+          placeholder="search">
         </div>
         {{site/rl-site-search term=term}}
 

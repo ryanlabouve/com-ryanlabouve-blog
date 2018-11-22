@@ -10,8 +10,8 @@ module('Acceptance | blog', function(hooks) {
     server.createList('article', 10);
   });
 
-  test('We can see articles', function(assert) {
-    blogPage.visit();
+  test('We can see articles', async function(assert) {
+    await blogPage.visit();
 
     assert.equal(
       blogPage.articles().count,
@@ -20,9 +20,9 @@ module('Acceptance | blog', function(hooks) {
     );
   });
 
-  test('We can visit an article', function(assert) {
-    blogPage.visit();
-    blogPage.articles(0).visit();
+  test('We can visit an article', async function(assert) {
+    await blogPage.visit();
+    await blogPage.articles(0).visit();
 
     assert.equal(
       currentURL(),

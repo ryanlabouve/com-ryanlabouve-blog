@@ -1,77 +1,71 @@
-<div
-  class="bt b--black-10">
-  <div
-    class="w-80-ns mw8 center"
-    >
-      <div class="flex-ns flex-row items-start pv4">
-        {{#site/rl-footer/rl-footer-box}}
-          <div class="tc fr-ns">
-            <img
-              src="http://com-ryanlabouve-blog.s3.amazonaws.com/profile-ryan-labouve.jpg"
-              class="w3 br2 mt2 ml2 mb2"
-              alt="Profile Picture of Ryan LaBouve">
-          </div>
-          <div class="f6 b pv2 tc tl-ns">
-            Ryan LaBouve: <br><span class="gray"><span style="color: #f23819">Ember.js</span>, <span style="color: #cc342d">Rails</span>, Programming</span>
-          </div>
-          <div class="f6 lh-copy tc tl-ns">
-            <p>
-              Trying to be more like Jesus. Love always wins, no matter how grim things&nbsp;appear.
-            </p>
-            <p class="tc tl-ns">
-              ❤️ family, friends, coffee, lifting, OCR's, running, reading, and a great many other&nbsp;things.
-            </p>
-          </div>
-        {{/site/rl-footer/rl-footer-box}}
-        {{#site/rl-footer/rl-footer-box}}
-          {{#deferred-content recentArticles as |d|}}
-            {{#d.settled}}
-              <div class="pv2 f6 b tc">Recent Articles</div>
-            {{/d.settled}}
-            {{#d.pending}}
-              Loading...
-            {{/d.pending}}
-            {{#d.fulfilled as |comments|}}
-              {{#each recentArticles as |article index|}}
-                <div
-                  class="tc {{if (eq index 4) '' 'bb'}} b--black-10">
-                  <a href={{href-to 'article' article.slug}}
-                    title={{article.title}}
-                    class="min-w-4 db pv2 js-social-nav-link pl3 silver no-underline">
-                    <span class="f6">{{article.title}}</span>
-                  </a>
-                </div>
-              {{/each}}
-            {{/d.fulfilled}}
-            {{#d.rejected as |reason|}}
-              Could not load comments: {{reason}}
-            {{/d.rejected}}
-          {{/deferred-content}}
-          <div class="f6">
-          </div>
-        {{/site/rl-footer/rl-footer-box}}
-        {{#site/rl-footer/rl-footer-box}}
-          <div class="f4 b pv1">
-            {{#each socialLinks as |link|}}
+<div class="bt b--black-10">
+  <div class="w-80-ns mw8 center">
+    <div class="flex-ns flex-row items-start pv4">
+      {{#site/rl-footer/rl-footer-box}}
+        <div class="tc fr-ns">
+          <img src="http://com-ryanlabouve-blog.s3.amazonaws.com/profile-ryan-labouve.jpg" class="w3 br2 mt2 ml2 mb2" alt="Profile Picture of Ryan LaBouve">
+        </div>
+        <div class="f6 b pv2 tc tl-ns">
+          Ryan LaBouve: <br><span class="gray"><span style="color: #f23819">Ember.js</span>, <span style="color: #cc342d">Rails</span>, Programming</span>
+        </div>
+        <div class="f6 lh-copy tc tl-ns">
+          <p>
+            Trying to be more like Jesus. Love always wins, no matter how grim things&nbsp;appear.
+          </p>
+          <p class="tc tl-ns">
+            ❤️ family, friends, coffee, lifting, OCR's, running, reading, and a great many other&nbsp;things.
+          </p>
+        </div>
+      {{/site/rl-footer/rl-footer-box}}
+      {{#site/rl-footer/rl-footer-box}}
+        {{#deferred-content recentArticles as |d|}}
+          {{#d.settled}}
+            <div class="pv2 f6 b tc">Recent Articles</div>
+          {{/d.settled}}
+          {{#d.pending}}
+            Loading...
+          {{/d.pending}}
+          {{#d.fulfilled}}
+            {{#each recentArticles as |article index|}}
               <div
-                class="tc {{if link.last '' 'bb'}} b--black-10"
-                >
-                <a href={{link.link}}
-                  style="margin-right: 1.5em;"
-                  title={{link.title}}
-                  class="db pv2 js-social-nav-link pl3 silver no-underline">
-                  <span style={{safe-string (concat "color: " link.color)}}>
-                    {{fa-icon link.icon size=1}}
-                  </span>
-                    &nbsp;
-                  <span class="f6">{{link.title}}</span>
+                class="tc {{if (eq index 4) "" "bb"}} b--black-10">
+                <a href={{href-to "article" article.slug}}
+                  title={{article.title}}
+                  class="min-w-4 db pv2 js-social-nav-link pl3 silver no-underline">
+                  <span class="f6">{{article.title}}</span>
                 </a>
               </div>
             {{/each}}
-          </div>
-          <div class="f6">
-          </div>
-        {{/site/rl-footer/rl-footer-box}}
-      </div>
+          {{/d.fulfilled}}
+          {{#d.rejected as |reason|}}
+            Could not load comments: {{reason}}
+          {{/d.rejected}}
+        {{/deferred-content}}
+        <div class="f6">
+        </div>
+      {{/site/rl-footer/rl-footer-box}}
+      {{#site/rl-footer/rl-footer-box}}
+        <div class="f4 b pv1">
+          {{#each socialLinks as |link|}}
+            <div
+              class="tc {{if link.last "" "bb"}} b--black-10"
+              >
+              <a href={{link.link}}
+                style="margin-right: 1.5em;"
+                title={{link.title}}
+                class="db pv2 js-social-nav-link pl3 silver no-underline">
+                <span style={{safe-string (concat "color: " link.color)}}>
+                  {{fa-icon link.icon size=1}}
+                </span>
+                &nbsp;
+                <span class="f6">{{link.title}}</span>
+              </a>
+            </div>
+          {{/each}}
+        </div>
+        <div class="f6">
+        </div>
+      {{/site/rl-footer/rl-footer-box}}
+    </div>
   </div>
 </div>

@@ -1,6 +1,5 @@
 import {Factory, faker} from 'ember-cli-mirage';
 import {dasherize} from '@ember/string';
-import Ember from 'ember';
 
 export default Factory.extend({
   title() {

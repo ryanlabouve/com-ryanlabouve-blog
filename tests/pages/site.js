@@ -4,39 +4,37 @@ import {
   collection,
   clickable,
   text,
-  count
+  count,
 } from 'ember-cli-page-object';
-
-import testSelector from 'com-ryanlabouve-blog/tests/helpers/ember-test-selectors';
 
 export default create({
   visit: visitable('/'),
   header: clickable(),
   nav: {
-    scope: testSelector('nav'),
+    scope: '[data-test-nav]',
 
     blogLink: {
       scope: ` a:contains('Blog')`,
-      visit: clickable()
+      visit: clickable(),
     },
     speakingLink: {
       scope: ` a:contains('Speaking')`,
-      visit: clickable()
+      visit: clickable(),
     },
 
     projectsLink: {
       scope: ` a:contains('Projects')`,
-      visit: clickable()
+      visit: clickable(),
     },
 
     aboutLink: {
       scope: ` a:contains('About')`,
-      visit: clickable()
+      visit: clickable(),
     },
 
     brandLink: {
-      scope: testSelector('brand'),
-      visit: clickable()
+      scope: '[data-test-brand]',
+      visit: clickable(),
     },
 
     links: collection({
@@ -44,8 +42,8 @@ export default create({
       count: count(),
       item: {
         visit: visitable(),
-        text: text()
-      }
-    })
-  }
+        text: text(),
+      },
+    }),
+  },
 });
