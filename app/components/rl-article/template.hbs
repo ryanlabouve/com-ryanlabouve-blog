@@ -1,9 +1,10 @@
-<div class="pa3">
-  <div class="gray fr pl3">
+<div class="p-3">
+  <div class="text-gray float-right pl-3
+    ">
     {{moment-format article.date "YYYY-MM-DD"}}
   </div>
-  <h1>{{article.title}}</h1>
-  <div class="pb5">
+  <h1 class="text-3xl">{{article.title}}</h1>
+  <div class="pb-5 max-w-sm leading-normal text-article">
     {{safe-string article.content}}
   </div>
 </div>

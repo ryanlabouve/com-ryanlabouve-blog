@@ -46,6 +46,7 @@ const SOCIAL_LINKS = [
 ];
 
 export default Component.extend({
+  tagName: '',
   showMobileMenuAt: 960,
   _showMobileMenu: false,
 

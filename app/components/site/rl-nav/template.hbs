@@ -1,10 +1,10 @@
-<div class="bb b--black-10">
-  <div class="w-80-ns pa3-ns mw8 center relative">
+<div class="border-b border-grey-light">
+  <div class="relative container mx-auto px-8 my-10 max-w-xl">
     <div class="flex flex-row pv4" data-test-nav>
       <div>
         <a
           data-test-brand
-          class="b pv1 ph2 mr3 no-underline bg-near-black white"
+          class="no-underline font-bold py-2 px-1 mr-3 bg-black text-white "
           style="
           margin-left: -0.5em;
           "
@@ -16,7 +16,7 @@
         {{#if hideMobileMenu}}
           {{#each links as |link|}}
             {{link-to link.title link.path
-            class="link js-nav-link pr2 f4 silver"}}
+            class="js-nav-link text-grey py-2 pr-2 text-xl no-underline"}}
           {{else}}
             No links found
           {{/each}}
@@ -28,7 +28,7 @@
         {{#each socialLinks as |link|}}
           <a href={{link.link}}
             title={{link.title}}
-            class="js-social-nav-link pl3 silver">
+            class="js-social-nav-link text-gray pl-3 no-underline">
             <span style={{concat "color: " (safe-string link.color)}}>
               {{fa-icon link.icon size=1}}
             </span>
@@ -36,13 +36,13 @@
         {{else}}
           No links found
         {{/each}}
-        <button onclick={{action "toggleSearchBar"}} class="ml4 pointer">
+        <button onclick={{action "toggleSearchBar"}} class="ml4 ml-4 pointer">
           {{fa-icon "search" size=1 class="black"}}
         </button>
       {{else}}
         <button
           onclick={{action "toggleMobileMenu"}}
-          class="absolute pa2 b ba b--black-10 blue mr2 mr0-ns"
+          class="absolute p-2 mr-2 text-bold text-blue border border-blue mr-2"
           style="
           top: 50%;
           right: 0;
@@ -50,10 +50,10 @@
           cursor: pointer;
           ">
           {{#if _showMobileMenu}}
-            <span class="gray">
+            <span class="gray text-grey">
               Close menu
             </span>
-            <span class="dark-red">
+            <span class="dark-red text-red">
               {{fa-icon "close"}}
             </span>
           {{else}}
@@ -72,10 +72,10 @@
     <div>
       {{#if (and showMobileMenu _showMobileMenu)}}
         {{#each links as |link|}}
-          <div class="tc bb b--black-10 ">
+          <div class="tc bb b--black-10 border-b border-black text-center">
             {{link-to link.title link.path
             invokeAction=(action "closeMenu")
-            class="db pv3 link js-nav-link pr2 f4 silver"}}
+            class="link js-nav-link block py-3 pr-2 text-md text-grey"}}
           </div>
         {{/each}}
         {{#each socialLinks as |link|}}
@@ -85,12 +85,12 @@
             <a href={{link.link}}
               style="margin-right: 2.5em;"
               title={{link.title}}
-              class="db pv3 js-social-nav-link pl3 silver no-underline">
+              class="js-social-nav-link no-underline block py-3 pl-3 text-grey">
               <span style={{concat "color: " (safe-string link.color)}}>
                 {{fa-icon link.icon size=1}}
               </span>
               &nbsp;
-              <span class="f4">{{link.title}}</span>
+              <span class="text-md">{{link.title}}</span>
             </a>
           </div>
         {{/each}}
@@ -102,18 +102,18 @@
   {{#ember-wormhole to="search"}}
     <div>
       {{#liquid-if (or _showSearchBar _showMobileMenu)}}
-        <div class="pa3 bg-black white">
+        <div class="p-3 bg-black text-white">
           {{#if (not _showMobileMenu)}}
             <button
               onclick={{action "closeSearch"}}
-              class="fr pointer">
+              class="fr pointer float-right">
               {{fa-icon "close"}}
             </button>
           {{/if}}
           {{fa-icon "search"}}
           <input
           style="border: 0; background: transparent; outline: 0"
-          class="input-reset w-70 white"
+          class="w-70 white text-white"
           onkeyup={{action (mut term) value="target.value"}}
           placeholder="search">
         </div>

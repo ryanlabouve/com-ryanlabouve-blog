@@ -1,19 +1,19 @@
 {{#if term}}
   <div class="">
-    <p class="tc">
-      Found <span class="blue">{{searchResults.length}}</span> searching for <span class="red">{{term}}</span>
+    <p class="tc text-center">
+      Found <span class="text-blue">{{searchResults.length}}</span> searching for <span class="text-red red">{{term}}</span>
     </p>
     {{#each searchResults as |article index|}}
       <div
-        class="tc {{if (eq index 4) "" "bb"}} b--black-10">
+        class=" text-center {{if (eq index 4) "" "border-b"}}  border-black">
         <a href={{href-to "article" article.slug}}
           title={{article.title}}
-          class="min-w-4 db pv2 js-social-nav-link pl3 silver no-underline">
-          <span class="f6">{{article.title}}</span>
+          class="min-w-4 db block js-social-nav-link pl-3 text-grey no-underline">
+          <span class="text-xl">{{article.title}}</span>
         </a>
       </div>
     {{else}}
-      <div class="tc">
+      <div class="text-center">
         No results found.
       </div>
     {{/each}}

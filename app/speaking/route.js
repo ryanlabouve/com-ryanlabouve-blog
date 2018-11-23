@@ -13,6 +13,13 @@ let talks = [
     date: 'April 15, 2018',
   },
   {
+    title: 'A Guide to Surviving Sidekiq',
+    video: 'https://youtu.be/7RByFVcvbBU?t=8',
+    meetup: 'https://www.meetup.com/OKC-Ruby/events/240562499/',
+    slides: 'https://github.com/ryanlabouve/dungeons_and_wizards_fe',
+    date: 'June 8, 2017',
+  },
+  {
     title: 'Contributing to Open Source',
     slides: 'http://slides.com/ryanlabouve/contribute-to-open-source#/',
     meetup: 'https://www.meetup.com/OKC-js/events/228003769/',

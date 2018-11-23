@@ -1,24 +1,19 @@
-<div class="ph4">
-  <h1 class="f1 tc tl-ns">Projects</h1>
-  <div class="measure f2-ns f3 lh-copy">
-    <p>
-      Yay projects! Going to use this page to track and curate some fun things I've played with.
-    </p>
-  </div>
+<div class="">
+  <h1 class="text-4xl mb-4">Projects</h1>
   {{#each model as |project|}}
-    <div class="mb4">
+    <div class="mb-4">
       <div>
-        <span class="f3">
+        <span class="text-xl">
           {{project.title}}
         </span>
         {{#if project.url}}
-          <a class="f6 blue mr2" href={{project.url}}> link</a>
+          <a class="text-xs text-blue mr-2" href={{project.url}}> link</a>
         {{/if}}
         {{#if project.repo}}
-          <a class="f6 red mr2" href={{project.repo}}> repo</a>
+          <a class="text-xs text-red mr-2" href={{project.repo}}> repo</a>
         {{/if}}
       </div>
-      <div class="lh-copy">
+      <div class="leading-normal text-grey">
         {{project.description}}
       </div>
       <div>
