@@ -1,21 +1,22 @@
 <a href={{href-to "article" article.slug}}
-  class="cf mb5 db no-underline black"
+  class="clearfix mb-8 block no-underline text-black"
   data-test-article-listing>
-  <div class="fr gray" data-test-date>
+  <div class="float-right text-grey" data-test-date>
     {{moment-format article.date "YYYY-MM-DD"}}
   </div>
-  <div class="f2 mb2" data-test-title>
+  <div class="text-4xl mb-2" data-test-title>
     {{article.title}}
   </div>
-  <div class="lh-copy measure" data-test-description>
+  <div class="leading-normal max-w-sm" data-test-description>
     {{article.description}}
   </div>
-  <div class="mt2">
+  <div class="mt-2">
     {{! template-lint-disable no-nested-interactive }}
     <a
       data-test-article-link
-      class="pa2 dib bg-animate hover-bg-blue ba br1
-        hover-white blue no-underline b--color-blue"
+      class="no-underline inline-block text-blue no-underline
+      border border-blue-light hover:border-white hover:bg-blue hover:text-white p-2
+      "
       href={{href-to "article" article.slug}}>
       Read more
     </a>
