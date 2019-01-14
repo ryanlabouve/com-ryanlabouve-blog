@@ -2,6 +2,12 @@ import Route from '@ember/routing/route';
 
 let talks = [
   {
+    title: 'Turning an Idea into Software',
+    meetup: 'https://www.meetup.com/FreeCodeCampOKC/events/256959962/',
+    video: 'https://www.youtube.com/watch?v=KiRSFnk2t-s',
+    date: 'December 9, 2018',
+  },
+  {
     title: 'A Programmer Has No Name',
     meetup: 'https://www.meetup.com/OKC-Ruby/events/255619218/',
     date: 'November 8, 2018',
