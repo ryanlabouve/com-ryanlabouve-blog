@@ -2,6 +2,11 @@ import Route from '@ember/routing/route';
 
 let talks = [
   {
+    title: 'Ember new Indie Software',
+    video: 'https://www.youtube.com/watch?v=MW8LGwdY3lk&t=3s',
+    date: 'March 18, 2019',
+  },
+  {
     title: 'Turning an Idea into Software',
     meetup: 'https://www.meetup.com/FreeCodeCampOKC/events/256959962/',
     video: 'https://www.youtube.com/watch?v=KiRSFnk2t-s',
