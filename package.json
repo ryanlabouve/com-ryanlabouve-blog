@@ -38,7 +38,7 @@
     "ember-cli-page-object": "v1.15.0-beta.4",
     "ember-cli-randoport": "1.0.1",
     "ember-cli-sass": "8.0.1",
-    "ember-cli-tailwind": "^0.6.3",
+    "ember-cli-tailwind": "^0.7.0",
     "ember-cli-template-lint": "^1.0.0-beta.1",
     "ember-cli-uglify": "^2.1.0",
     "ember-concurrency": "1.0.0",
