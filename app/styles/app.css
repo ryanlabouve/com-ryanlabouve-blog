@@ -8,10 +8,6 @@
 $blackish: #333333;
 $whiteish: #dddddd;
 
-body {
-  color: $blackish;
-}
-
 .flex-1 {
   flex: 1;
 }
@@ -69,5 +65,47 @@ ul {
   h5,
   h6 {
     margin-top: 1.2em;
+  }
+}
+
+.dark {
+  @apply text-gray-300;
+
+  .bg-primary--lumen {
+    @apply bg-gray-900;
+  }
+  .bg-secondary--lumen {
+  }
+  .bg-tertiary--lumen {
+  }
+
+  .text-primary--lumen {
+    @apply text-gray-300;
+  }
+
+  .text-primary-heading--lumen {
+    font-weight: 300;
+    @apply text-gray-100;
+  }
+
+  .text-secondary--lumen {
+    font-weight: 200;
+    @apply text-gray-600;
+  }
+}
+
+.light {
+  @apply text-gray-800;
+
+  .bg-primary--lumen {
+  }
+
+  .text-primary-heading--lumen {
+    font-weight: 500;
+    @apply text-gray-900;
+  }
+
+  .text-secondary--lumen {
+    @apply text-gray-900;
   }
 }

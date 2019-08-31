@@ -2,8 +2,8 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const CssImport = require('postcss-import');
-const CssNested = require('postcss-nested');
 const CssVariables = require('postcss-simple-vars');
+const Autoprefixer = require('autoprefixer');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -12,8 +12,9 @@ module.exports = function(defaults) {
         enabled: true,
         plugins: [
           {module: CssImport},
-          {module: CssNested},
+          equire('postcss-nested'),
           {module: CssVariables},
+          require('autoprefixer'),
           require('tailwindcss')('./config/tailwind.config.js'),
         ],
       },

@@ -1,7 +1,11 @@
-<div id="search"></div>
-<div id="menu"></div>
-{{site/rl-nav}}
-{{#site/rl-content}}
-  {{liquid-outlet}}
-{{/site/rl-content}}
-{{site/rl-footer}}
+<div class="{{lumen.mode}}">
+  <div class=" bg-primary--lumen">
+    <div id="search"></div>
+    <div id="menu"></div>
+    {{site/rl-nav}}
+    {{#site/rl-content}}
+      {{liquid-outlet}}
+    {{/site/rl-content}}
+    {{site/rl-footer}}
+  </div>
+</div>

@@ -17,8 +17,10 @@
     "start": "ember serve",
     "start:mirage": "ENABLE_MIRAGE=true ember serve",
     "test": "ember test",
-    "clean": "rm -rf node_modules bower_components dist && yarn clean:system_temp",
-    "clean:system_temp": "find /var/folders -name 'broccoli-*' -type d -print 2> /dev/null | xargs rm -rf",
+    "clean":
+      "rm -rf node_modules bower_components dist && yarn clean:system_temp",
+    "clean:system_temp":
+      "find /var/folders -name 'broccoli-*' -type d -print 2> /dev/null | xargs rm -rf",
     "reset": "yarn clean && yarn"
   },
   "devDependencies": {
@@ -67,7 +69,8 @@
     "postcss-nested": "4.1.2",
     "postcss-simple-vars": "5.0.2",
     "qunit-dom": "^0.8.0",
-    "tailwindcss": "^1.1.2"
+    "tailwindcss": "^1.1.2",
+    "autoprefixer": "9.6.1"
   },
   "engines": {
     "node": ">=10 || 11.2.0"

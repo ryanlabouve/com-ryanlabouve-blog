@@ -12,6 +12,8 @@
           href={{href-to "blog"}}>
           Ryan LaBouve
         </a>
+        <button onclick={{action (mut lumen.mode) 'light'}}>light</button>
+        <button onclick={{action (mut lumen.mode) 'dark'}}>dark</button>
 
         {{#if hideMobileMenu}}
           {{#each links as |link|}}
@@ -42,7 +44,7 @@
       {{else}}
         <button
           onclick={{action "toggleMobileMenu"}}
-          class="absolute p-2 mr-2 text-bold text-blue border border-blue mr-2"
+          class="absolute p-2 mr-2 text-bold text-blue-300 border border-blue-300 mr-2"
           style="
           top: 50%;
           right: 0;

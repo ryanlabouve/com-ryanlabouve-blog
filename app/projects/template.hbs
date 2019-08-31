@@ -2,18 +2,18 @@
   <h1 class="text-4xl mb-4">Projects</h1>
   {{#each model as |project|}}
     <div class="mb-4">
-      <div>
+      <div class="text-primary-heading--lumen">
         <span class="text-xl">
           {{project.title}}
         </span>
         {{#if project.url}}
-          <a class="text-xs text-blue mr-2" href={{project.url}}> link</a>
+          <a class="text-xs text-blue-300 mr-2" href={{project.url}}> link</a>
         {{/if}}
         {{#if project.repo}}
-          <a class="text-xs text-red mr-2" href={{project.repo}}> repo</a>
+          <a class="text-xs text-red-300 mr-2" href={{project.repo}}> repo</a>
         {{/if}}
       </div>
-      <div class="leading-normal text-grey">
+      <div class="leading-normal text-secondary--lumen">
         {{project.description}}
       </div>
       <div>

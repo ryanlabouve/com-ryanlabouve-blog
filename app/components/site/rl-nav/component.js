@@ -4,6 +4,7 @@ import {not} from '@ember/object/computed';
 import $ from 'jquery';
 import Component from '@ember/component';
 import Ember from 'ember';
+import {inject as service} from '@ember/service';
 
 const LINKS = [
   {
@@ -46,6 +47,7 @@ const SOCIAL_LINKS = [
 ];
 
 export default Component.extend({
+  lumen: service(),
   tagName: '',
   showMobileMenuAt: 960,
   _showMobileMenu: false,

@@ -1,21 +1,21 @@
 <a href={{href-to "article" article.slug}}
   class="clearfix mb-8 block no-underline text-black"
   data-test-article-listing>
-  <div class="float-right text-grey" data-test-date>
+  <div class="float-right text-primary--lumen" data-test-date>
     {{moment-format article.date "YYYY-MM-DD"}}
   </div>
-  <div class="text-4xl mb-2" data-test-title>
+  <div class="text-4xl mb-2 text-primary-heading--lumen" data-test-title>
     {{article.title}}
   </div>
-  <div class="leading-normal max-w-sm" data-test-description>
+  <div class="leading-normal max-w-sm text-secondary--lumen" data-test-description>
     {{article.description}}
   </div>
   <div class="mt-2">
     {{! template-lint-disable no-nested-interactive }}
     <a
       data-test-article-link
-      class="no-underline inline-block text-blue no-underline
-      border border-blue-light hover:border-white hover:bg-blue hover:text-white p-2
+      class="no-underline inline-block text-blue-300 no-underline
+      border border-blue-300 hover:border-white hover:bg-blue-300 hover:text-white p-2
       "
       href={{href-to "article" article.slug}}>
       Read more
