@@ -12,7 +12,7 @@ module.exports = function(defaults) {
         enabled: true,
         plugins: [
           {module: CssImport},
-          equire('postcss-nested'),
+          require('postcss-nested'),
           {module: CssVariables},
           require('autoprefixer'),
           require('tailwindcss')('./config/tailwind.config.js'),
