@@ -1,10 +1,23 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const CssImport = require('postcss-import');
+const CssNested = require('postcss-nested');
+const CssVariables = require('postcss-simple-vars');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+    postcssOptions: {
+      compile: {
+        enabled: true,
+        plugins: [
+          {module: CssImport},
+          {module: CssNested},
+          {module: CssVariables},
+          require('tailwindcss')('./config/tailwind.config.js'),
+        ],
+      },
+    },
   });
 
   app.import('vendor/highlight/highlight.pack.js');
