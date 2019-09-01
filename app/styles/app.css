@@ -68,6 +68,44 @@ ul {
   }
 }
 
+.text-article {
+  $base: 21px;
+  h1 {
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 0.7rem;
+  }
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 0.28rem;
+    line-height: 1.12;
+  }
+
+  p,
+  ul,
+  ol {
+    @apply leading-normal;
+    font-size: $base;
+    margin-bottom: 1em;
+  }
+
+  ul {
+    @apply list-inside;
+    @apply list-disc;
+    text-indent: 1em;
+  }
+  ol {
+    text-indent: 1em;
+    @apply list-inside;
+    @apply list-decimal;
+    @apply leading-tight;
+    p {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
 .dark {
   @apply text-gray-300;
 
@@ -91,6 +129,15 @@ ul {
   .text-secondary--lumen {
     font-weight: 200;
     @apply text-gray-600;
+  }
+
+  .text-article {
+    p,
+    ul,
+    ol {
+      font-weight: 200;
+      @apply text-gray-500;
+    }
   }
 }
 
