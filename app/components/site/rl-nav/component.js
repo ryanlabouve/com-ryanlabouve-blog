@@ -74,7 +74,7 @@ export default Component.extend({
   didInsertElement() {
     this.canWormhole();
     $(window).on(`resize.${this.id}`, () => {
-      next(function() {
+      next(() => {
         window.requestAnimationFrame(() => {
           this.set('_showMobileMenu', false);
           this.setWindowSize();
