@@ -3918,6 +3918,10 @@ ember-cli-moment-shim@^3.7.1:
     moment "^2.19.3"
     moment-timezone "^0.5.13"
 
+ember-cli-netlify@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-netlify/-/ember-cli-netlify-0.3.1.tgz#5092024b44d983260f18db87240c9a37f8e17595"
+
 ember-cli-node-assets@^0.1.4:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/ember-cli-node-assets/-/ember-cli-node-assets-0.1.6.tgz#6488a2949048c801ad6d9e33753c7bce32fc1146"

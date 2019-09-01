@@ -17,15 +17,14 @@
     "start": "ember serve",
     "start:mirage": "ENABLE_MIRAGE=true ember serve",
     "test": "ember test",
-    "clean":
-      "rm -rf node_modules bower_components dist && yarn clean:system_temp",
-    "clean:system_temp":
-      "find /var/folders -name 'broccoli-*' -type d -print 2> /dev/null | xargs rm -rf",
+    "clean": "rm -rf node_modules bower_components dist && yarn clean:system_temp",
+    "clean:system_temp": "find /var/folders -name 'broccoli-*' -type d -print 2> /dev/null | xargs rm -rf",
     "reset": "yarn clean && yarn"
   },
   "devDependencies": {
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.6.3",
+    "autoprefixer": "9.6.1",
     "broccoli-asset-rev": "^3.0.0",
     "ember-ajax": "^3.1.0",
     "ember-cli": "~3.5.1",
@@ -39,8 +38,10 @@
     "ember-cli-inject-live-reload": "2.0.1",
     "ember-cli-mirage": "^0.4.9",
     "ember-cli-moment-shim": "^3.7.1",
+    "ember-cli-netlify": "^0.3.1",
     "ember-cli-o": "1.0.0",
     "ember-cli-page-object": "v1.15.0-beta.4",
+    "ember-cli-postcss": "^5.0.0",
     "ember-cli-randoport": "1.0.1",
     "ember-cli-template-lint": "^1.0.0-beta.1",
     "ember-cli-uglify": "^2.1.0",
@@ -55,7 +56,6 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-metrics": "^0.12.1",
     "ember-moment": "^7.8.0",
-    "ember-cli-postcss": "^5.0.0",
     "ember-qunit": "^3.4.1",
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.5.1",
@@ -69,8 +69,7 @@
     "postcss-nested": "4.1.2",
     "postcss-simple-vars": "5.0.2",
     "qunit-dom": "^0.8.0",
-    "tailwindcss": "^1.1.2",
-    "autoprefixer": "9.6.1"
+    "tailwindcss": "^1.1.2"
   },
   "engines": {
     "node": ">=10 || 11.2.0"
