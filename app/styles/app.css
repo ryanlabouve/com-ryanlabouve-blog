@@ -43,11 +43,11 @@ $whiteish: #dddddd;
 
 pre {
   margin-left: -0.6rem;
+  background: rgba(200,200,200,0.9)
 }
 
 code {
   font-size: 0.9em;
-  background: yellow;
   padding-left: 0.2em;
   padding-right: 0.2em;
   line-height: 1.5;
