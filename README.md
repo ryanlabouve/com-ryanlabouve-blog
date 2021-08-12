@@ -1,3 +1,5 @@
+DEPRECATE
+
 # com-ryanlabouve-blog
 
 ## Development
